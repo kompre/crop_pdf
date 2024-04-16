@@ -1,6 +1,7 @@
 import os
 import subprocess
 import click
+import sys
 
 
 def get_pdf_files(source, recursive=True):
@@ -41,7 +42,7 @@ def crop_pdf_file(pdf_file, source, destination, margins, keep_files):
         os.remove(pdf_file)
 
 
-@click.command()
+@click.command(help='Crop PDF files and save the cropped files to the destination directory.')
 @click.argument('sources', nargs=-1, type=click.Path(exists=True, resolve_path=True))
 @click.option('--destination', '-d', help='Output directory for cropped PDFs.')
 @click.option('--margins', '-m', default=5, help='White margin in pixels.')
@@ -50,6 +51,12 @@ def crop_pdf_file(pdf_file, source, destination, margins, keep_files):
 def crop_pdf(sources, destination, margins, keep_files, recursive):
     """Crop PDF files in the given sources and save the cropped files to the
     destination directory."""
+    # If no arguments are provided, display the help message
+    # If no arguments are provided, display the help message
+    if not sources and len(sys.argv) == 1:
+        click.echo(click.get_current_context().get_help())
+        return
+    
     # Set destination directory, default is current directory
     if not destination:
         destination = os.getcwd()
