@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crop-pdf"
-version = "0.1.0"
+version = "2024.04.3"
 description = ""
 authors = ["kompre <s.follador@gmail.com>"]
 readme = "README.md"
