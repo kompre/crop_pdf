@@ -1,2 +1,0 @@
-click==7.1.2
--e git+https://github.com/kompre/crop_pdf.git@068fa2a9cd2579f3aede2cbe52c9a270e8c8f038#egg=crop

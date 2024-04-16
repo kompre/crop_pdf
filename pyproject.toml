@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "crop-pdf"
+version = "0.1.0"
+description = ""
+authors = ["kompre <s.follador@gmail.com>"]
+readme = "README.md"
+packages = [{include = "croppdf"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+crop = "croppdf.crop:crop_pdf"

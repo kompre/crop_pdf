@@ -9,6 +9,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        crop=crop:croppdf
+        crop=croppdf.crop:crop_pdf
     ''',
 )
