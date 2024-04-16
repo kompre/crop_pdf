@@ -30,14 +30,14 @@ def crop_pdf_file(pdf_file, source, destination, margins, keep_files):
     output_file = os.path.join(output_dir, os.path.basename(pdf_file))
 
     # Replace backslashes with forward slashes in paths
-    pdf_file = pdf_file.replace(os.sep, '/')
-    output_file = output_file.replace(os.sep, '/')
+    pdf_file = (os.path.relpath(pdf_file)).replace(os.sep, '/')
+    output_file = (os.path.relpath(output_file)).replace(os.sep, '/')
 
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
     subprocess.run(['pdfcrop', f'--margins={margins}', pdf_file, output_file], capture_output=True)
-    click.echo(f'\tCropped: {os.path.relpath(pdf_file):30s} to {os.path.relpath(output_file):30s}')
+    click.echo(f'\tCropped: {pdf_file:30s} to {output_file:30s}')
     if pdf_file != output_file and not keep_files:
         os.remove(pdf_file)
 
