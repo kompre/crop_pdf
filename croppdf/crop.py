@@ -57,11 +57,10 @@ def crop_pdf(sources, destination, margins, keep_files, recursive):
         click.echo(click.get_current_context().get_help())
         return
     
-    # Set destination directory, default is current directory
-    if not destination:
-        destination = os.getcwd()
-
     for source in sources:
+        # If destination is not provided, set it to the source directory
+        if not destination:
+            destination = source
         # Process directories recursively if the recursive option is enabled
         pdf_files = get_pdf_files(source, recursive=recursive)
         if not pdf_files:
