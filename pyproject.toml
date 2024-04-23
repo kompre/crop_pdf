@@ -9,6 +9,9 @@ packages = [{include = "croppdf"}]
 [tool.poetry.dependencies]
 python = "^3.12"
 click = "^8.1.7"
+pypdf = "^4.2.0"
+pymupdf = "^1.24.1"
+pdfcropmargins = "^2.1.2"
 
 
 [build-system]
